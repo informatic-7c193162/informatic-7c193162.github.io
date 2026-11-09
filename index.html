@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鉴黄师动漫 - 审核分级与平台治理观察</title>
+<meta name="description" content="鉴黄师动漫聚焦动漫内容审核与分级实务，汇总审核规则解读、分级案例、平台治理动态与从业者经验，适合关注内容安全与动漫合规的读者阅读。">
+<meta name="keywords" content="动漫审核,内容分级,平台治理,审核标准,从业者经验">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23202640'/%3E%3Cpath d='M16 36l10 10 22-26' stroke='%2364e0c8' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='48' cy='18' r='7' fill='%23f6b73c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1c2130;
+  --ink-2:#3d4560;
+  --muted:#6b7288;
+  --line:#e2e5ef;
+  --bg:#f4f6fb;
+  --panel:#ffffff;
+  --brand:#23305e;
+  --brand-2:#3a4b8f;
+  --accent:#0f9d8a;
+  --accent-soft:#e3f6f1;
+  --warn:#c8501e;
+  --warn-soft:#fdeee6;
+  --gold:#b07d12;
+  --gold-soft:#fbf3dd;
+  --radius:14px;
+  --radius-s:9px;
+  --shadow:0 1px 2px rgba(28,33,48,.05),0 8px 24px -12px rgba(28,33,48,.18);
+  --shadow-s:0 1px 2px rgba(28,33,48,.06);
+  --maxw:1340px;
+  --sticky-offset:118px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.75;
+  font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.3em}
+li{margin-bottom:.35em}
+button{font-family:inherit}
+
+/* ---------- sticky stack ---------- */
+.sticky-stack{
+  position:sticky;top:0;z-index:60;
+}
+.notice-bar{
+  background:linear-gradient(90deg,#23305e,#32437f 55%,#0f9d8a);
+  color:#eef3ff;
+  font-size:13.5px;
+  letter-spacing:.2px;
+}
+.notice-bar .inner{
+  max-width:var(--maxw);margin:0 auto;padding:8px 22px;
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+}
+.notice-bar .tag{
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;padding:1px 10px;font-size:12px;font-weight:600;
+  white-space:nowrap;
+}
+.notice-bar a{color:#fff;border-bottom:1px dashed rgba(255,255,255,.5)}
+.notice-bar a:hover{border-bottom-style:solid}
+
+.site-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow-s);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;gap:26px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand-mark{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:radial-gradient(circle at 30% 25%,#3a4b8f,#1a2447 70%);
+  display:grid;place-items:center;position:relative;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);
+}
+.brand-mark svg{width:26px;height:26px}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-text b{font-size:19px;letter-spacing:.6px;color:var(--brand)}
+.brand-text span{font-size:11.5px;color:var(--muted);letter-spacing:1.4px}
+.top-nav{display:flex;gap:4px;flex-wrap:wrap;flex:1}
+.top-nav a{
+  padding:7px 11px;border-radius:8px;font-size:14px;color:var(--ink-2);
+  white-space:nowrap;transition:.16s;
+}
+.top-nav a:hover{background:var(--accent-soft);color:#0b6f62}
+.header-actions{display:flex;gap:8px;align-items:center}
+.header-actions .btn-ghost{
+  border:1px solid var(--line);background:#fff;border-radius:9px;
+  padding:7px 14px;font-size:13.5px;color:var(--ink-2);cursor:pointer;
+}
+.header-actions .btn-ghost:hover{border-color:var(--accent);color:#0b6f62}
+
+/* ---------- hero ---------- */
+.hero{
+  max-width:var(--maxw);margin:0 auto;padding:30px 22px 8px;
+  display:grid;grid-template-columns:1.35fr 1fr;gap:30px;align-items:stretch;
+}
+.hero-copy{
+  background:linear-gradient(160deg,#ffffff 0%,#f7f9ff 55%,#eef4ff 100%);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px 34px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.hero-copy::after{
+  content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(15,157,138,.14),transparent 68%);
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.5px;
+  color:#0b6f62;background:var(--accent-soft);border-radius:999px;padding:4px 13px;font-weight:600;
+  margin-bottom:16px;
+}
+.hero h1{
+  font-size:clamp(28px,3.6vw,44px);letter-spacing:1px;color:var(--brand);
+  margin-bottom:14px;
+}
+.hero-lead{font-size:15.5px;color:var(--ink-2);max-width:56ch}
+.hero-lead strong{color:var(--warn);font-weight:700}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;border-radius:10px;
+  padding:10px 18px;font-size:14.5px;font-weight:600;cursor:pointer;border:1px solid transparent;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px -8px rgba(35,48,94,.7)}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-line{background:#fff;border-color:var(--line);color:var(--ink-2)}
+.btn-line:hover{border-color:var(--accent);color:#0b6f62}
+.hero-visual{
+  border:1px solid var(--line);border-radius:var(--radius);background:#fff;
+  box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:12px;
+}
+.hero-visual h2{font-size:13px;color:var(--muted);letter-spacing:1.2px;font-weight:600}
+.score-row{display:flex;align-items:center;gap:12px}
+.score-ring{
+  width:62px;height:62px;border-radius:50%;flex-shrink:0;
+  background:conic-gradient(var(--accent) 0 74%,#e6eaf4 74% 100%);
+  display:grid;place-items:center;position:relative;
+}
+.score-ring::before{content:"";position:absolute;inset:7px;background:#fff;border-radius:50%}
+.score-ring b{position:relative;font-size:17px;color:var(--brand)}
+.score-meta{font-size:13px;color:var(--ink-2)}
+.score-meta b{color:var(--ink);font-size:14.5px}
+.bar-list{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+.bar-item{font-size:12.5px;color:var(--ink-2)}
+.bar-item .bar-track{height:6px;border-radius:99px;background:#eef1f8;margin-top:4px;overflow:hidden}
+.bar-item .bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#3a4b8f,#0f9d8a)}
+.hero-note{font-size:12px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:auto}
+
+/* ---------- layout ---------- */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:26px 22px 10px;
+  display:grid;grid-template-columns:180px minmax(0,1fr) 268px;gap:26px;align-items:start;
+}
+.channel-col{
+  position:sticky;top:var(--sticky-offset);
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 12px;box-shadow:var(--shadow-s);
+}
+.channel-col h2{
+  font-size:12px;letter-spacing:1.6px;color:var(--muted);font-weight:600;
+  padding:0 10px 10px;border-bottom:1px solid var(--line);margin-bottom:8px;
+}
+.channel-nav{display:flex;flex-direction:column;gap:2px}
+.channel-nav a{
+  display:flex;justify-content:space-between;align-items:center;gap:6px;
+  padding:8px 10px;border-radius:8px;font-size:14px;color:var(--ink-2);
+}
+.channel-nav a span{font-size:11.5px;color:var(--muted)}
+.channel-nav a:hover{background:var(--accent-soft);color:#0b6f62}
+.channel-nav a.active{background:var(--brand);color:#fff}
+.channel-nav a.active span{color:rgba(255,255,255,.7)}
+
+.main-col{min-width:0;display:flex;flex-direction:column;gap:26px}
+.aside-col{
+  position:sticky;top:var(--sticky-offset);
+  display:flex;flex-direction:column;gap:20px;
+}
+
+/* ---------- section shell ---------- */
+.section{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;box-shadow:var(--shadow-s);
+}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px;flex-wrap:wrap;
+}
+.section-head h2{font-size:21px;color:var(--brand);letter-spacing:.4px}
+.section-head .sub{font-size:13px;color:var(--muted)}
+.section-head .more{font-size:13px;color:var(--accent);font-weight:600;white-space:nowrap}
+.section-head .more:hover{text-decoration:underline}
+.eyebrow{
+  display:inline-block;font-size:11.5px;letter-spacing:1.4px;color:#0b6f62;
+  background:var(--accent-soft);border-radius:6px;padding:2px 8px;font-weight:600;margin-bottom:8px;
+}
+
+/* ---------- cards ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius-s);background:#fff;
+  overflow:hidden;display:flex;flex-direction:column;transition:.18s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cfd7ec}
+.card-thumb{position:relative;aspect-ratio:4/3;background:#eef1f8}
+.card-thumb img{width:100%;height:100%;object-fit:cover}
+.card-thumb .badge{
+  position:absolute;left:9px;top:9px;background:rgba(28,33,48,.82);color:#fff;
+  font-size:11.5px;padding:2px 9px;border-radius:999px;font-weight:600;letter-spacing:.4px;
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-body h3{font-size:15.5px;color:var(--ink);line-height:1.45}
+.card-body h3 a:hover{color:var(--accent)}
+.card-body p{font-size:13px;color:var(--muted);margin:0;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:11.5px;padding:1.5px 8px;border-radius:5px;background:#f0f3fa;color:#4b5674;
+  border:1px solid #e6eaf4;
+}
+.tag.accent{background:var(--accent-soft);color:#0b6f62;border-color:#c8ece5}
+.tag.warn{background:var(--warn-soft);color:var(--warn);border-color:#f7d8c9}
+.card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--muted);border-top:1px dashed var(--line);
+  padding-top:9px;margin-top:2px;
+}
+.card-foot .hot{color:var(--warn);font-weight:600}
+
+/* ---------- update list ---------- */
+.update-list{display:flex;flex-direction:column;gap:0}
+.update-item{
+  display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:14px;align-items:baseline;
+  padding:12px 2px;border-bottom:1px dashed var(--line);
+}
+.update-item:last-child{border-bottom:0}
+.update-item .time{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.update-item .what b{color:var(--ink);font-size:14.5px}
+.update-item .what span{color:var(--muted);font-size:13px;display:block;margin-top:1px}
+.update-item .pill{
+  font-size:11.5px;border-radius:999px;padding:1px 9px;white-space:nowrap;
+  background:#f0f3fa;color:#4b5674;border:1px solid #e6eaf4;
+}
+.update-item .pill.new{background:var(--accent-soft);color:#0b6f62;border-color:#c8ece5}
+.update-item .pill.warn{background:var(--warn-soft);color:var(--warn);border-color:#f7d8c9}
+
+/* ---------- category tiles ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-tile{
+  border:1px solid var(--line);border-radius:var(--radius-s);padding:14px 14px 13px;background:#fff;
+  display:flex;flex-direction:column;gap:5px;transition:.16s;
+}
+.cat-tile:hover{border-color:var(--accent);background:#fbfefd}
+.cat-tile b{font-size:15px;color:var(--brand)}
+.cat-tile span{font-size:12px;color:var(--muted);line-height:1.5}
+.cat-tile em{font-style:normal;font-size:11.5px;color:#0b6f62;font-weight:600}
+
+/* ---------- longform ---------- */
+.longform h3{font-size:17px;color:var(--brand);margin:22px 0 8px;padding-left:12px;border-left:4px solid var(--accent)}
+.longform h3:first-child{margin-top:0}
+.longform p{font-size:14.5px;color:var(--ink-2);max-width:78ch}
+.longform ul{font-size:14.5px;color:var(--ink-2);max-width:78ch}
+.longform ul li::marker{color:var(--accent)}
+.compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 6px;
+}
+.compare-col{border:1px solid var(--line);border-radius:var(--radius-s);padding:14px 16px;background:#fbfcff}
+.compare-col h4{font-size:14px;margin-bottom:6px;color:var(--brand)}
+.compare-col p,.compare-col li{font-size:13px;color:var(--ink-2);margin-bottom:4px}
+.compare-col ul{padding-left:1.1em;margin-bottom:0}
+.compare-col.hot{background:var(--accent-soft);border-color:#c8ece5}
+.compare-col.cold{background:var(--gold-soft);border-color:#efdfb4}
+
+/* ---------- guide steps ---------- */
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.step{
+  display:grid;grid-template-columns:34px minmax(0,1fr);gap:13px;align-items:start;
+  border:1px solid var(--line);border-radius:var(--radius-s);padding:13px 16px;background:#fff;
+}
+.step::before{
+  counter-increment:s;content:counter(s);
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  background:var(--brand);color:#fff;font-size:14px;font-weight:700;
+}
+.step b{font-size:14.5px;color:var(--ink)}
+.step p{font-size:13.5px;color:var(--muted);margin:3px 0 0}
+
+/* ---------- faq ---------- */
+.faq{display:flex;flex-direction:column;gap:9px}
+.faq details{
+  border:1px solid var(--line);border-radius:var(--radius-s);background:#fff;overflow:hidden;
+}
+.faq details[open]{border-color:#cfd7ec;box-shadow:var(--shadow-s)}
+.faq summary{
+  cursor:pointer;padding:12px 16px;font-size:14.5px;font-weight:600;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;gap:10px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:19px;font-weight:700;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary:hover{background:#fbfcff}
+.faq .ans{padding:0 16px 14px;font-size:13.5px;color:var(--ink-2)}
+.faq .ans p{margin-bottom:.5em}
+
+/* ---------- comments ---------- */
+.comment-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comment{
+  border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 14px;background:#fff;
+}
+.comment .who{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:5px}
+.comment .who b{font-size:13.5px;color:var(--brand)}
+.comment .who span{font-size:11.5px;color:var(--muted)}
+.comment p{font-size:13px;color:var(--ink-2);margin:0}
+.comment .stars{color:var(--gold);font-size:12px;letter-spacing:1px}
+
+/* ---------- news ---------- */
+.news-list{display:flex;flex-direction:column;gap:0}
+.news-item{
+  display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:13px 0;
+  border-bottom:1px dashed var(--line);
+}
+.news-item:last-child{border-bottom:0;padding-bottom:0}
+.news-item img{width:96px;height:64px;object-fit:cover;border-radius:8px}
+.news-item h3{font-size:14.5px;color:var(--ink);margin-bottom:3px}
+.news-item h3:hover{color:var(--accent)}
+.news-item .meta{font-size:11.5px;color:var(--muted);margin-bottom:3px}
+.news-item p{font-size:12.5px;color:var(--muted);margin:0}
+
+/* ---------- related tags ---------- */
+.rel-tags{display:flex;flex-wrap:wrap;gap:8px}
+.rel-tags a{
+  font-size:13px;border:1px solid var(--line);border-radius:999px;padding:5px 13px;
+  color:var(--ink-2);background:#fff;transition:.16s;
+}
+.rel-tags a:hover{border-color:var(--accent);color:#0b6f62;background:var(--accent-soft)}
+
+/* ---------- aside widgets ---------- */
+.widget{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;box-shadow:var(--shadow-s);
+}
+.widget h2{
+  font-size:13px;letter-spacing:1.4px;color:var(--muted);font-weight:600;
+  border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:11px;
+}
+.rank-list{counter-reset:r;display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none}
+.rank-list li{
+  counter-increment:r;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:9px;
+  align-items:baseline;font-size:13.5px;margin:0;
+}
+.rank-list li::before{
+  content:counter(r);width:20px;height:20px;border-radius:6px;display:grid;place-items:center;
+  font-size:11.5px;font-weight:700;background:#eef1f8;color:#4b5674;
+}
+.rank-list li:nth-child(-n+3)::before{background:var(--brand);color:#fff}
+.rank-list li a{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-list li a:hover{color:var(--accent)}
+.rank-list li span{font-size:11.5px;color:var(--muted)}
+.timeline{border-left:2px solid #e6eaf4;margin:0 0 0 5px;padding:0 0 0 15px;list-style:none}
+.timeline li{position:relative;margin-bottom:13px;font-size:13px;color:var(--ink-2)}
+.timeline li::before{
+  content:"";position:absolute;left:-21px;top:7px;width:8px;height:8px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 0 3px #fff;
+}
+.timeline b{color:var(--ink);display:block;font-size:13.5px}
+.timeline time{font-size:11.5px;color:var(--muted)}
+.quick-search{display:flex;gap:7px;margin-bottom:10px}
+.quick-search input{
+  flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:7px 10px;
+  font-size:13.5px;font-family:inherit;color:var(--ink);
+}
+.quick-search input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.quick-search button{
+  border:none;border-radius:8px;background:var(--brand);color:#fff;padding:0 13px;
+  font-size:13.5px;font-weight:600;cursor:pointer;
+}
+.quick-search button:hover{background:var(--brand-2)}
+.search-result{font-size:12.5px;color:var(--muted)}
+.search-result b{color:var(--warn)}
+
+/* ---------- footer ---------- */
+.site-footer{
+  margin-top:34px;background:#1a2138;color:#c8d0e4;font-size:13.5px;
+}
+.footer-inner{max-width:var(--maxw);margin:0 auto;padding:34px 22px 16px}
+.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:26px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand b{color:#fff;font-size:17px;letter-spacing:.6px}
+.footer-brand p{color:#9aa5c0;font-size:12.5px;margin:8px 0 0;max-width:34ch}
+.footer-col h3{font-size:12.5px;letter-spacing:1.2px;color:#8f9bb8;margin-bottom:10px;font-weight:600}
+.footer-col a{display:block;font-size:13px;color:#c8d0e4;padding:3px 0}
+.footer-col a:hover{color:#64e0c8}
+.footer-legal{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  padding-top:14px;font-size:12px;color:#8f9bb8;
+}
+
+@media(max-width:1120px){
+  .layout{grid-template-columns:170px minmax(0,1fr)}
+  .aside-col{position:static;grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero{grid-template-columns:1fr}
+  .hero-visual{order:2}
+}
+@media(max-width:900px){
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:740px){
+  :root{--sticky-offset:150px}
+  .header-inner{padding:10px 16px;gap:12px}
+  .top-nav{order:3;flex-basis:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .top-nav a{padding:6px 9px;font-size:13px}
+  .layout{grid-template-columns:1fr;padding:18px 16px 8px}
+  .channel-col{position:static;padding:12px}
+  .channel-nav{flex-direction:row;flex-wrap:wrap;gap:5px}
+  .channel-nav a{padding:6px 10px;font-size:13px}
+  .channel-nav a span{display:none}
+  .hero{padding:18px 16px 4px}
+  .hero-copy{padding:24px 20px}
+  .section{padding:18px 16px}
+  .card-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .compare{grid-template-columns:1fr}
+  .comment-grid{grid-template-columns:1fr}
+  .aside-col{grid-template-columns:1fr}
+  .update-item{grid-template-columns:64px minmax(0,1fr);gap:10px}
+  .update-item .pill{grid-column:2;justify-self:start}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-stack">
+  <!-- 吸顶公告条 -->
+  <div class="notice-bar" role="status" aria-label="站内公告">
+    <div class="inner">
+      <span class="tag">本周更新</span>
+      <span>审核规则库新增 <strong>12 条</strong>动漫分级判例，含“战斗暴露度”“恐怖元素分级”两个专题。</span>
+      <a href="#updates">查看更新明细 →</a>
+    </div>
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M6 18l6 6L26 8" stroke="#64e0c8" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="25" cy="7" r="3.4" fill="#f6b73c"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <b>鉴黄师动漫</b>
+          <span>ANIME REVIEW &amp; RATING</span>
+        </div>
+      </div>
+      <nav class="top-nav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#picks">精选条目</a>
+        <a href="#updates">更新动态</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deepdive">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-ghost" type="button" onclick="document.getElementById('site-search').focus()">站内查找</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 主题首屏 -->
+<section class="hero" aria-labelledby="main-title">
+  <div class="hero-copy">
+    <span class="hero-kicker">内容审核 · 分级判例 · 平台治理</span>
+    <h1 id="main-title">鉴黄师动漫</h1>
+    <p class="hero-lead">这个页面汇聚动漫内容审核领域的具体材料：分级判例、暴露度与暴力元素判定标准、平台下架与整改动态，以及一线审核员的实操经验。适合关注动漫合规、想了解分级边界和审核尺度的读者逐条查阅。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#picks">浏览分级判例</a>
+      <a class="btn btn-line" href="#deepdive">阅读判定标准</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-label="本期审核数据速览">
+    <h2>本期审核速览 · 2026-11-08</h2>
+    <div class="score-row">
+      <div class="score-ring" aria-hidden="true"><b>74%</b></div>
+      <div class="score-meta">
+        <b>本周动漫过审率</b><br>
+        较上周上升 3.2 个百分点，主要来自日常向作品
+      </div>
+    </div>
+    <div class="bar-list">
+      <div class="bar-item">战斗暴露度复核占比 38%
+        <div class="bar-track"><div class="bar-fill" style="width:38%"></div></div>
+      </div>
+      <div class="bar-item">恐怖与血腥元素复核占比 26%
+        <div class="bar-track"><div class="bar-fill" style="width:26%"></div></div>
+      </div>
+      <div class="bar-item">年龄提示标签补发占比 21%
+        <div class="bar-track"><div class="bar-fill" style="width:21%"></div></div>
+      </div>
+    </div>
+    <p class="hero-note">数据样本：本周进入人工复核的 1,240 部新番与剧场版条目。</p>
+  </div>
+</section>
+
+<!-- 三栏门户主体 -->
+<div class="layout">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-col" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <nav class="channel-nav" aria-label="内容频道">
+      <a href="#overview" class="active">领域概览 <span>01</span></a>
+      <a href="#picks">分级判例 <span>12</span></a>
+      <a href="#updates">更新动态 <span>10</span></a>
+      <a href="#categories">分类入口 <span>08</span></a>
+      <a href="#deepdive">深度解析 <span>04</span></a>
+      <a href="#guide">体验指南 <span>05</span></a>
+      <a href="#faq">常见问答 <span>06</span></a>
+      <a href="#comments">用户评论 <span>16</span></a>
+      <a href="#news">相关资讯 <span>06</span></a>
+      <a href="#related">相关推荐 <span>08</span></a>
+      <a href="#ranking">热门榜单 <span>10</span></a>
+    </nav>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-col">
+
+    <!-- 1 主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">领域概览</span>
+          <h2>动漫审核领域包含哪些具体方向</h2>
+        </div>
+      </div>
+      <p>动漫内容审核并不是一个单一动作，它至少覆盖四个相互衔接的方向：<strong>视觉暴露度判定</strong>、<strong>暴力与血腥元素分级</strong>、<strong>恐怖与惊悚氛围评估</strong>，以及<strong>平台年龄提示与整改执行</strong>。每个方向都有独立的判例积累，也都有各自容易产生争议的边界案例。</p>
+      <p>在视觉暴露度方面，审核员关注的是角色服装覆盖率、镜头角度与持续时长三者的组合，而不是单帧画面。常见的争议集中在“战斗破损装”和“泳装回”两类场景：前者要看破损是否服务于剧情，后者要看镜头是否刻意停留。在暴力与血腥方向，判定通常以出血量呈现方式、肢体损伤可视程度、是否出现写实解剖结构为依据，卡通化处理与写实渲染的结论往往不同。</p>
+      <p>恐怖与惊悚氛围评估更依赖整体观感，包括音效密度、镜头切换频率、怪物形象写实度，以及是否对未成年观众造成持续压迫感。平台年龄提示与整改执行则属于落地环节，涉及标签补发、片头提示、单集下架与整季整改等不同处置层级。</p>
+      <p>当前值得关注的具体内容有三类：一是 2026 年秋季新番中战斗类作品的暴露度复核案例明显增多；二是多部经典剧场版因恐怖元素被重新评级；三是平台开始试行“分集分级”而非“整季一刀切”。这些变化直接影响观众能看到什么版本，也影响创作者在立项阶段的自我审查方式。</p>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="picks">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">精选条目</span>
+          <h2>近期值得查阅的分级判例与审核样本</h2>
+        </div>
+        <a class="more" href="#ranking">热度排行 →</a>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime01/400/300" alt="战斗破损装暴露度复核案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">视觉暴露度</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#deepdive">战斗破损装暴露度复核：第 7 集浴室场景</a></h3>
+            <p>镜头停留 4.2 秒，服装覆盖率低于平台阈值，判定为需补发 16+ 年龄提示而非下架。判例价值在于区分“剧情必要”与“镜头刻意”。</p>
+            <div class="tag-row">
+              <span class="tag accent">16+ 提示</span>
+              <span class="tag">镜头时长</span>
+              <span class="tag">覆盖率</span>
+            </div>
+            <div class="card-foot"><span>更新 11-06</span><span class="hot">复核热度 9.1</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime02/400/300" alt="恐怖剧场版重新评级案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">恐怖元素</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#deepdive">《雾港夜行》剧场版重新评级为 18+</a></h3>
+            <p>怪物形象写实度提升、音效密度高，原 15+ 评级被上调。平台同步在片头增加 12 秒氛围提示，并限制夜间推荐位曝光。</p>
+            <div class="tag-row">
+              <span class="tag warn">18+ 评级</span>
+              <span class="tag">音效密度</span>
+              <span class="tag">片头提示</span>
+            </div>
+            <div class="card-foot"><span>更新 11-05</span><span class="hot">复核热度 8.7</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime03/400/300" alt="分集分级试行案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">平台治理</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#updates">《星轨少年》试行分集分级：第 3 集单独标 15+</a></h3>
+            <p>整季维持 12+，仅第 3 集因战斗出血量上升单独标注。这是平台首次对 TV 动画采用分集标签，观众可按集查看提示。</p>
+            <div class="tag-row">
+              <span class="tag accent">分集分级</span>
+              <span class="tag">出血量</span>
+              <span class="tag">标签补发</span>
+            </div>
+            <div class="card-foot"><span>更新 11-04</span><span class="hot">复核热度 8.9</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime04/400/300" alt="泳装回判定标准案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">视觉暴露度</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#deepdive">泳装回判定标准：镜头角度与停留时长对照</a></h3>
+            <p>汇总 18 个泳装回案例，按平视、俯视、特写三类角度给出参考时长阈值。俯视特写超过 3 秒即进入复核队列。</p>
+            <div class="tag-row">
+              <span class="tag">镜头角度</span>
+              <span class="tag accent">时长阈值</span>
+              <span class="tag">复核队列</span>
+            </div>
+            <div class="card-foot"><span>更新 11-03</span><span class="hot">复核热度 8.4</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime05/400/300" alt="血腥元素卡通化处理案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">暴力血腥</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#deepdive">卡通化出血与写实出血的判定差异</a></h3>
+            <p>同样出血量下，色块化、无解剖结构的处理可维持 12+；出现血管与组织细节则升至 16+。案例对比图说明分界线所在。</p>
+            <div class="tag-row">
+              <span class="tag warn">16+ 评级</span>
+              <span class="tag">卡通化</span>
+              <span class="tag">解剖结构</span>
+            </div>
+            <div class="card-foot"><span>更新 11-02</span><span class="hot">复核热度 8.2</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime06/400/300" alt="夜间推荐位限制案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">平台治理</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#news">夜间推荐位限制：18+ 条目的曝光时段规则</a></h3>
+            <p>平台将 18+ 动漫的推荐位曝光限定在 22:00 之后，并关闭青少年模式下的搜索直达。规则细节与申诉流程一并列出。</p>
+            <div class="tag-row">
+              <span class="tag">曝光时段</span>
+              <span class="tag accent">青少年模式</span>
+              <span class="tag">申诉</span>
+            </div>
+            <div class="card-foot"><span>更新 11-01</span><span class="hot">复核热度 8.0</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime07/400/300" alt="审核员实操记录案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">从业经验</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#comments">一线审核员复盘：一天 60 集的判定节奏</a></h3>
+            <p>记录审核员如何分配逐帧检查与整体观感判断的时间，以及在连续战斗场景中避免误判的操作习惯，适合新人参考。</p>
+            <div class="tag-row">
+              <span class="tag">逐帧检查</span>
+              <span class="tag">整体观感</span>
+              <span class="tag accent">判定节奏</span>
+            </div>
+            <div class="card-foot"><span>更新 10-30</span><span class="hot">复核热度 7.8</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime08/400/300" alt="年龄提示标签样式案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">标签体系</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#categories">年龄提示标签样式与文案规范</a></h3>
+            <p>12+、15+、16+、18+ 四档标签的片头展示时长、文案措辞与配色规范。16+ 与 18+ 的文案差异在于是否明确提示“含恐怖元素”。</p>
+            <div class="tag-row">
+              <span class="tag">标签样式</span>
+              <span class="tag accent">文案规范</span>
+              <span class="tag">片头时长</span>
+            </div>
+            <div class="card-foot"><span>更新 10-29</span><span class="hot">复核热度 7.6</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-thumb">
+            <img src="https://picsum.photos/seed/jianhuang-anime09/400/300" alt="季度复审机制案例封面" width="400" height="300" loading="lazy">
+            <span class="badge">复审机制</span>
+          </div>
+          <div class="card-body">
+            <h3><a href="#updates">季度复审机制：已上线条目的重新抽查比例</a></h3>
+            <p>每季度抽取 8% 的已过审条目重新复核，重点检查当时处于边界值的判例。复审不通过的条目会进入标签调整流程。</p>
+            <div class="tag-row">
+              <span class="tag">抽查比例</span>
+              <span class="tag">边界值</span>
+              <span class="tag accent">标签调整</span>
+            </div>
+            <div class="card-foot"><span>更新 10-27</span><span class="hot">复核热度 7.4</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3 最新更新 / 动态 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">更新动态</span>
+          <h2>最新审核动态与条目变更</h2>
+        </div>
+        <span class="sub">截至 2026-11-08 09:30</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="time">今天 09:30</span>
+          <div class="what"><b>《星轨少年》第 3 集</b><span>分集标签 15+ 正式生效，播放页已显示集级提示。</span></div>
+          <span class="pill new">新规则</span>
+        </div>
+        <div class="update-item">
+          <span class="time">今天 08:10</span>
+          <div class="what"><b>《雾港夜行》剧场版</b><span>重新评级为 18+，片头新增 12 秒氛围提示。</span></div>
+          <span class="pill warn">评级调整</span>
+        </div>
+        <div class="update-item">
+          <span class="time">昨天 21:10</span>
+          <div class="what"><b>秋季新番第 6 周复核批次</b><span>共 214 部进入人工复核，较上周增加 17 部。</span></div>
+          <span class="pill">批次更新</span>
+        </div>
+        <div class="update-item">
+          <span class="time">昨天 16:45</span>
+          <div class="what"><b>战斗破损装判例库</b><span>新增 12 条判例，覆盖浴室、更衣室、战场三类场景。</span></div>
+          <span class="pill new">判例新增</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 6 日</span>
+          <div class="what"><b>《银月骑士团》第 7 集</b><span>补发 16+ 年龄提示，未下架，镜头停留时长列为边界参考。</span></div>
+          <span class="pill">标签补发</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 5 日</span>
+          <div class="what"><b>平台夜间推荐位规则</b><span>18+ 动漫曝光时段限定为 22:00 至次日 06:00。</span></div>
+          <span class="pill new">规则上线</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 4 日</span>
+          <div class="what"><b>《深蓝回响》</b><span>整季通过复核，维持 12+，片尾增加内容提示卡。</span></div>
+          <span class="pill">复审通过</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 3 日</span>
+          <div class="what"><b>泳装回判定标准</b><span>新增俯视特写 3 秒阈值条款，进入下月试行。</span></div>
+          <span class="pill new">标准更新</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 2 日</span>
+          <div class="what"><b>《赤刃战记》第 9 集</b><span>出血呈现改为色块化后，评级由 16+ 下调至 12+。</span></div>
+          <span class="pill warn">评级下调</span>
+        </div>
+        <div class="update-item">
+          <span class="time">11 月 1 日</span>
+          <div class="what"><b>季度复审抽查</b><span>本季抽取 8% 已上线条目，重点复核边界值判例。</span></div>
+          <span class="pill">复审启动</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">分类入口</span>
+          <h2>按审核方向查找具体材料</h2>
+        </div>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-tile" href="#picks">
+          <b>视觉暴露度</b>
+          <span>服装覆盖率、镜头角度、停留时长三类判定要素</span>
+          <em>12 条判例</em>
+        </a>
+        <a class="cat-tile" href="#picks">
+          <b>暴力与血腥</b>
+          <span>出血呈现方式、解剖结构、卡通化处理差异</span>
+          <em>9 条判例</em>
+        </a>
+        <a class="cat-tile" href="#picks">
+          <b>恐怖与惊悚</b>
+          <span>音效密度、镜头切换、怪物写实度评估</span>
+          <em>8 条判例</em>
+        </a>
+        <a class="cat-tile" href="#picks">
+          <b>年龄提示标签</b>
+          <span>12+ 至 18+ 四档标签的样式与文案规范</span>
+          <em>6 条规范</em>
+        </a>
+        <a class="cat-tile" href="#deepdive">
+          <b>分集分级</b>
+          <span>整季与分集标签的适用条件与执行流程</span>
+          <em>5 条案例</em>
+        </a>
+        <a class="cat-tile" href="#news">
+          <b>平台治理</b>
+          <span>下架、整改、推荐位限制与申诉流程</span>
+          <em>7 条动态</em>
+        </a>
+        <a class="cat-tile" href="#guide">
+          <b>复审机制</b>
+          <span>季度抽查比例、边界值判定与标签调整</span>
+          <em>4 条说明</em>
+        </a>
+        <a class="cat-tile" href="#comments">
+          <b>从业经验</b>
+          <span>审核员排班、判定节奏与误判规避习惯</span>
+          <em>10 条记录</em>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section longform" id="deepdive">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">深度解析</span>
+          <h2>动漫分级判定中的具体标准与争议边界</h2>
+        </div>
+        <span class="sub">阅读约 8 分钟</span>
+      </div>
+
+      <h3>视觉暴露度：三要素组合而非单帧截图</h3>
+      <p>动漫审核里最容易产生分歧的是视觉暴露度。许多观众以为判定依据是“某一帧画面是否露得多”，实际执行的判定逻辑是服装覆盖率、镜头角度、持续时长三者的组合。覆盖率低于平台阈值的画面，如果镜头角度为平视且停留不足 1 秒，通常只进入观察队列；如果角度为俯视或特写、停留超过 3 秒，则进入复核。</p>
+      <p>战斗破损装是典型复合场景。角色在战斗中服装破损，本身服务于剧情推进，但若破损部位集中在敏感区域且镜头反复给到特写，判定就会从“剧情必要”转向“镜头刻意”。判例库中收录的 12 条浴室与更衣室场景案例，多数争议点不在画面本身，而在镜头停留的累计时长。</p>
+
+      <h3>暴力与血腥：卡通化处理的缓冲作用</h3>
+      <p>同样表现出血，卡通化处理与写实渲染的评级结论往往相差一档。色块化、无解剖结构、出血量以夸张喷溅表现的画面，通常可以维持 12+；一旦出现血管走向、组织细节或写实伤口边缘，评级会升至 16+ 甚至 18+。这条分界线在《赤刃战记》第 9 集的处理中体现得很清楚：同一段剧情，改为色块化呈现后评级由 16+ 下调至 12+。</p>
+      <div class="compare">
+        <div class="compare-col hot">
+          <h4>卡通化出血 · 常见结论 12+</h4>
+          <ul>
+            <li>出血以单色色块或夸张喷溅表现</li>
+            <li>无可辨认的血管与组织细节</li>
+            <li>伤口边缘简化，不呈现写实质感</li>
+            <li>镜头停留时间不作为主要判定依据</li>
+          </ul>
+        </div>
+        <div class="compare-col cold">
+          <h4>写实出血 · 常见结论 16+ / 18+</h4>
+          <ul>
+            <li>出现血管走向、组织层次或解剖结构</li>
+            <li>伤口边缘有写实质感与光影细节</li>
+            <li>血液流动、淤积等动态表现完整</li>
+            <li>配合音效强化时评级进一步上调</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>恐怖元素：整体观感优先于单点画面</h3>
+      <p>恐怖与惊悚方向的判定更依赖整体观感。审核员会综合音效密度、镜头切换频率、怪物形象写实度，以及是否存在持续压迫感来判断。一部作品可能没有任何血腥画面，但通过高频跳切与低频音效持续制造紧张感，同样会被上调评级。《雾港夜行》剧场版重新评级为 18+，核心依据不是某个具体画面，而是怪物形象写实度提升叠加音效密度过高。</p>
+      <p>这类判定的难点在于主观差异。平台通常要求两名审核员独立给出结论，结论不一致时交由第三名复核。判例库会记录分歧点，供后续同类作品参考。</p>
+
+      <h3>分集分级：从整季一刀切到按集标注</h3>
+      <p>2026 年秋季开始试行的分集分级，是对传统整季评级的补充。《星轨少年》整季维持 12+，仅第 3 集因战斗出血量上升单独标注 15+。这种做法让观众可以按集查看提示，也减少了因单集内容导致整季被上调的情况。执行层面需要平台在播放页、选集列表与搜索结果显示集级标签，对内容管理系统有额外要求。</p>
+      <ul>
+        <li><strong>适用条件：</strong>整季内容整体处于某一档，但存在个别集数明显越档。</li>
+        <li><strong>标注位置：</strong>播放页标题下方、选集列表角标、搜索结果条目摘要。</li>
+        <li><strong>限制：</strong>分集标签不改变整季评级，家长控制仍以整季评级为准。</li>
+      </ul>
+
+      <h3>复核与申诉：边界判例的纠错通道</h3>
+      <p>已经上线的条目并非一评定终身。平台每季度抽取 8% 的已过审条目重新复核，重点检查当时处于边界值的判例。复审不通过的条目进入标签调整流程，必要时通知版权方补充材料。版权方对评级有异议时，可通过申诉通道提交剧情说明与分镜脚本，由复核小组重新评估。</p>
+      <p>这套机制的实际价值在于让判定标准保持动态。随着新番表现手法变化，边界值本身也在移动，季度复审提供了修正窗口。</p>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">体验指南</span>
+          <h2>查阅分级判例与判断条目风险的顺序</h2>
+        </div>
+      </div>
+      <p>面对大量分级判例，合理的查阅顺序能减少重复阅读。建议先确认自己想了解的是哪一类判定，再按对应方向进入判例，而不是从头逐条浏览。</p>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <b>先确定判定方向</b>
+            <p>视觉暴露度、暴力血腥、恐怖氛围、平台治理四类判例的判定要素完全不同。先锁定方向，再看该方向下的边界案例。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>优先读标注“边界参考”的判例</b>
+            <p>边界判例通常同时列出通过结论与复核结论，能看出阈值在哪里移动。结论明确的判例参考价值反而较低。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>对照条目当前评级与历史评级</b>
+            <p>评级调整过的条目信息量最大，例如《赤刃战记》从 16+ 下调至 12+，能直观看到处理方式改变带来的结论变化。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>比较同类条目的处置差异</b>
+            <p>同样是泳装回，有的补发提示、有的直接下架，差异往往来自镜头角度与累计时长。把两三个案例并排看，比读单条说明更有效。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>最后看平台治理动态</b>
+            <p>推荐位限制、夜间曝光规则、申诉流程这类信息变化较快，放在最后确认，避免用旧规则判断新条目。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">常见问答</span>
+          <h2>关于动漫审核与分级的常见问题</h2>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>动漫审核一般多久更新一次评级？</summary>
+          <div class="ans">
+            <p>新番通常在首播后 24 小时内完成初审，进入人工复核的条目在 3 个工作日内出结论。已上线条目的评级调整不设固定周期，季度复审会集中处理一批边界判例。分集分级的标签补发一般在单集播出后 48 小时内完成。</p>
+          </div>
+        </details>
+        <details>
+          <summary>12+ 和 16+ 的主要区别在哪里？</summary>
+          <div class="ans">
+            <p>主要差异在暴力呈现方式与视觉暴露度的镜头处理。12+ 允许卡通化出血与短暂暴露画面，但要求镜头不停留；16+ 则对应写实出血、较长时间的暴露镜头，或恐怖氛围较强的作品。16+ 条目在青少年模式下默认不进入推荐流。</p>
+          </div>
+        </details>
+        <details>
+          <summary>第一次接触这类判例，从哪个条目开始看比较好？</summary>
+          <div class="ans">
+            <p>建议从《银月骑士团》第 7 集的判例开始。它是典型的边界案例：补发 16+ 提示但未下架，判例里同时列出了镜头停留时长与覆盖率数据，能较快建立对判定逻辑的直观理解。看完再对照《赤刃战记》的评级下调案例。</p>
+          </div>
+        </details>
+        <details>
+          <summary>泳装回一定会被上调评级吗？</summary>
+          <div class="ans">
+            <p>不一定。判定取决于镜头角度与累计停留时长。平视、远景、快速带过的泳装场景通常维持原评级；俯视特写、累计停留超过阈值、反复给到敏感部位镜头的场景才进入复核。判例库中约三成泳装回案例未发生评级变化。</p>
+          </div>
+        </details>
+        <details>
+          <summary>恐怖元素的评判标准通常是什么？</summary>
+          <div class="ans">
+            <p>没有单一画面标准，主要看整体观感：音效密度是否持续偏高、镜头切换是否频繁制造惊吓、怪物形象是否写实到引起生理不适、是否对未成年观众形成持续压迫感。两名审核员独立结论不一致时，交由第三名复核。</p>
+          </div>
+        </details>
+        <details>
+          <summary>分集分级和整季分级冲突时以哪个为准？</summary>
+          <div class="ans">
+            <p>以整季分级为基准，分集标签是补充提示。例如《星轨少年》整季 12+，第 3 集单独标 15+，家长控制仍按整季 12+ 执行，但播放该集时会额外显示集级提示。两者同时存在，不互相覆盖。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">用户评论</span>
+          <h2>读者对具体判例与条目的讨论</h2>
+        </div>
+        <span class="sub">16 条</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment">
+          <div class="who"><b>帧率观察者</b><span>11-08 09:12</span></div>
+          <p>《银月骑士团》第 7 集那个判例挺有参考价值，4.2 秒的停留时长刚好卡在阈值上，补提示不下架的处理比一刀切合理。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>夜航审核日志</b><span>11-08 08:40</span></div>
+          <p>卡通化和写实出血的分界写得清楚。之前一直以为看血量，其实是看有没有解剖结构。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>雾港常驻</b><span>11-07 22:18</span></div>
+          <p>《雾港夜行》升到 18+ 我觉得合理，音效太密了，戴耳机看确实压迫感很强。片头那 12 秒提示加得及时。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>分集标签关注者</b><span>11-07 20:03</span></div>
+          <p>分集分级是好事，但选集列表的角标太小了，手机上不太容易注意到。希望播放页的提示能再明显一点。</p>
+          <div class="stars">★★★☆☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>色块派</b><span>11-07 15:47</span></div>
+          <p>《赤刃战记》改成色块化之后下调评级，说明处理方式真的会影响结论，不是题材本身的问题。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>季度复审蹲守</b><span>11-06 19:30</span></div>
+          <p>8% 的抽查比例感觉偏低，边界判例那么多，希望复审能覆盖更多当时卡线的条目。</p>
+          <div class="stars">★★★☆☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>泳装回研究</b><span>11-06 13:22</span></div>
+          <p>俯视特写 3 秒阈值这个条款挺具体，比“视情况而定”好操作多了。等下月试行看实际执行。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>新人审核练习</b><span>11-06 10:05</span></div>
+          <p>体验指南里的查阅顺序对新人有用，先看边界判例再看结论明确的，确实省时间。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>青少年模式用户</b><span>11-05 21:40</span></div>
+          <p>18+ 条目夜间才进推荐位这个规则，实际效果是白天搜不到，但知道名字还是能搜到条目页，感觉限制有限。</p>
+          <div class="stars">★★★☆☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>标签样式控</b><span>11-05 17:12</span></div>
+          <p>16+ 和 18+ 的文案差异写得很细，“含恐怖元素”这个明确提示挺必要，比只标数字清楚。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>战斗番老观众</b><span>11-05 11:55</span></div>
+          <p>战斗破损装的判定确实容易争议，同一部作品不同集数处理不一样，分集标签能解决一部分问题。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>判例库搬运工</b><span>11-04 22:08</span></div>
+          <p>12 条浴室和更衣室判例整理得比较全，累计时长这个维度之前没太注意，回头补一下笔记。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>恐怖片耐受低</b><span>11-04 16:33</span></div>
+          <p>音效密度作为判定依据我支持，有些片没血腥画面但音效让人很难受，确实该提示。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>申诉流程关注</b><span>11-03 20:19</span></div>
+          <p>申诉通道提到要提交分镜脚本，这个门槛对中小版权方有点高，希望有更简化的材料清单。</p>
+          <div class="stars">★★★☆☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>一周 60 集</b><span>11-03 14:02</span></div>
+          <p>审核员复盘那篇提到的节奏分配挺真实，连续战斗场景确实容易疲劳误判，间隔看日常向作品是个办法。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+        <div class="comment">
+          <div class="who"><b>中立看判例</b><span>11-02 09:47</span></div>
+          <p>整体信息量够，就是部分判例的结论写得比较简略，希望后续能补上具体的时间和覆盖率数据。</p>
+          <div class="stars">★★★☆☆</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">相关资讯</span>
+          <h2>动漫审核与平台治理近期动态</h2>
+        </div>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news01/600/400" alt="分集分级试行范围扩大资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#updates">分集分级试行范围扩大至 14 部秋季新番</a></h3>
+            <div class="meta">2026-11-08 · 平台规则</div>
+            <p>继《星轨少年》之后，分集标签开始覆盖更多存在单集越档的作品。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news02/600/400" alt="夜间推荐位限制规则资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#news">18+ 动漫夜间推荐位规则生效首周数据</a></h3>
+            <div class="meta">2026-11-07 · 平台治理</div>
+            <p>曝光时段限定后，18+ 条目的日间搜索量下降，夜间观看占比上升。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news03/600/400" alt="战斗破损装判例库扩充资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#picks">战斗破损装判例库新增 12 条浴室场景案例</a></h3>
+            <div class="meta">2026-11-06 · 判例更新</div>
+            <p>新增案例重点记录镜头累计停留时长，为边界判定提供量化参考。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news04/600/400" alt="恐怖剧场版重新评级资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#deepdive">《雾港夜行》剧场版重新评级引发恐怖元素标准讨论</a></h3>
+            <div class="meta">2026-11-05 · 评级调整</div>
+            <p>音效密度与怪物写实度成为讨论焦点，复核小组公布分歧点记录。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news05/600/400" alt="季度复审抽查启动资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#updates">第四季度复审抽查启动，重点复核边界值判例</a></h3>
+            <div class="meta">2026-11-02 · 复审机制</div>
+            <p>本季抽取 8% 已上线条目，复审结论将在 11 月下旬陆续公布。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <img src="https://picsum.photos/seed/jianhuang-news06/600/400" alt="卡通化出血判定差异资讯配图" width="96" height="64" loading="lazy">
+          <div>
+            <h3><a href="#deepdive">卡通化出血判定差异案例集发布</a></h3>
+            <div class="meta">2026-10-30 · 判例更新</div>
+            <p>案例集对比同一剧情在两种处理方式下的评级结论，附分镜说明。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">相关推荐</span>
+          <h2>延伸查阅的具体方向</h2>
+        </div>
+      </div>
+      <div class="rel-tags">
+        <a href="#deepdive">镜头累计停留时长</a>
+        <a href="#deepdive">写实伤口边缘判定</a>
+        <a href="#picks">泳装回俯视特写阈值</a>
+        <a href="#updates">分集标签补发流程</a>
+        <a href="#news">青少年模式搜索限制</a>
+        <a href="#guide">边界判例查阅顺序</a>
+        <a href="#faq">恐怖音效密度评估</a>
+        <a href="#comments">审核员误判规避习惯</a>
+      </div>
+    </section>
+
+    <!-- 11 补充板块：热门榜单 -->
+    <section class="section" id="ranking">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">热门榜单</span>
+          <h2>本周复核热度最高的动漫条目</h2>
+        </div>
+        <span class="sub">统计截至 11-08 09:00</span>
+      </div>
+      <ol class="rank-list" style="gap:11px">
+        <li><a href="#picks">《银月骑士团》第 7 集</a><span>复核热度 9.1</span></li>
+        <li><a href="#picks">《星轨少年》第 3 集</a><span>复核热度 8.9</span></li>
+        <li><a href="#picks">《雾港夜行》剧场版</a><span>复核热度 8.7</span></li>
+        <li><a href="#picks">《赤刃战记》第 9 集</a><span>复核热度 8.5</span></li>
+        <li><a href="#picks">《深蓝回响》整季</a><span>复核热度 8.3</span></li>
+        <li><a href="#picks">泳装回标准对照案例集</a><span>复核热度 8.2</span></li>
+        <li><a href="#picks">卡通化出血判定案例集</a><span>复核热度 8.0</span></li>
+        <li><a href="#picks">年龄提示标签文案规范</a><span>复核热度 7.8</span></li>
+        <li><a href="#picks">夜间推荐位限制规则</a><span>复核热度 7.6</span></li>
+        <li><a href="#picks">季度复审抽查说明</a><span>复核热度 7.4</span></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="aside-col" aria-label="辅助信息">
+
+    <div class="widget">
+      <h2>站内查找</h2>
+      <form class="quick-search" role="search" onsubmit="return false">
+        <input id="site-search" type="search" placeholder="输入条目名，如 银月骑士团" aria-label="查找条目">
+        <button type="button" id="search-btn">查找</button>
+      </form>
+      <p class="search-result" id="search-result">输入条目名称可定位到对应板块。</p>
+    </div>
+
+    <div class="widget">
+      <h2>近期审核时间线</h2>
+      <ul class="timeline">
+        <li><b>《雾港夜行》上调 18+</b><time>2026-11-08 08:10</time></li>
+        <li><b>分集标签正式生效</b><time>2026-11-08 09:30</time></li>
+        <li><b>夜间推荐位规则上线</b><time>2026-11-05</time></li>
+        <li><b>泳装回阈值条款试行</b><time>2026-11-03</time></li>
+        <li><b>《赤刃战记》下调 12+</b><time>2026-11-02</time></li>
+      </ul>
+    </div>
+
+    <div class="widget">
+      <h2>评级分布速览</h2>
+      <div class="bar-list">
+        <div class="bar-item">12+ 条目占比 52%
+          <div class="bar-track"><div class="bar-fill" style="width:52%"></div></div>
+        </div>
+        <div class="bar-item">15+ 条目占比 24%
+          <div class="bar-track"><div class="bar-fill" style="width:24%"></div></div>
+        </div>
+        <div class="bar-item">16+ 条目占比 16%
+          <div class="bar-track"><div class="bar-fill" style="width:16%"></div></div>
+        </div>
+        <div class="bar-item">18+ 条目占比 8%
+          <div class="bar-track"><div class="bar-fill" style="width:8%"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <b>鉴黄师动漫</b>
+        <p>聚焦动漫内容审核与分级实务，整理分级判例、判定标准、平台治理动态与从业者经验，供关注动漫合规的读者逐条查阅。</p>
+      </div>
+      <div class="footer-col">
+        <h3>审核方向</h3>
+        <a href="#picks">视觉暴露度判例</a>
+        <a href="#picks">暴力与血腥分级</a>
+        <a href="#picks">恐怖与惊悚评估</a>
+        <a href="#categories">年龄提示标签</a>
+      </div>
+      <div class="footer-col">
+        <h3>治理与机制</h3>
+        <a href="#updates">更新动态</a>
+        <a href="#news">平台治理资讯</a>
+        <a href="#deepdive">分集分级说明</a>
+        <a href="#guide">复审与申诉</a>
+      </div>
+      <div class="footer-col">
+        <h3>读者入口</h3>
+        <a href="#overview">领域概览</a>
+        <a href="#deepdive">深度解析</a>
+        <a href="#faq">常见问答</a>
+        <a href="#comments">用户评论</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2026 鉴黄师动漫 · 内容分级观察站</span>
+      <span>部分内容为示例数据，仅用于展示页面结构</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('site-search');
+  var btn = document.getElementById('search-btn');
+  var out = document.getElementById('search-result');
+  if(!input || !btn || !out) return;
+
+  var map = [
+    {kw:['银月骑士团','浴室','破损装','第7集'], target:'#picks', label:'《银月骑士团》第 7 集判例（精选条目）'},
+    {kw:['星轨少年','分集','第3集'], target:'#updates', label:'《星轨少年》分集标签（更新动态）'},
+    {kw:['雾港夜行','恐怖','18+'], target:'#deepdive', label:'《雾港夜行》恐怖元素解析（深度解析）'},
+    {kw:['赤刃战记','卡通化','色块'], target:'#deepdive', label:'卡通化出血判定（深度解析）'},
+    {kw:['泳装','俯视','阈值'], target:'#faq', label:'泳装回判定标准（常见问答）'},
+    {kw:['标签','文案','年龄提示'], target:'#picks', label:'年龄提示标签规范（精选条目）'},
+    {kw:['复审','抽查','季度'], target:'#updates', label:'季度复审机制（更新动态）'},
+    {kw:['夜间','推荐位','曝光'], target:'#news', label:'夜间推荐位限制（相关资讯）'},
+    {kw:['申诉','流程'], target:'#deepdive', label:'申诉与复核（深度解析）'},
+    {kw:['评论','从业','审核员'], target:'#comments', label:'从业者讨论（用户评论）'}
+  ];
+
+  function doSearch(){
+    var q = input.value.trim();
+    if(!q){
+      out.innerHTML = '输入条目名称可定位到对应板块。';
+      return;
+    }
+    var hit = null;
+    for(var i=0;i<map.length;i++){
+      for(var j=0;j<map[i].kw.length;j++){
+        if(q.indexOf(map[i].kw[j]) !== -1 || map[i].kw[j].indexOf(q) !== -1){
+          hit = map[i]; break;
+        }
+      }
+      if(hit) break;
+    }
+    if(hit){
+      out.innerHTML = '找到：<b>' + hit.label + '</b>';
+      var el = document.querySelector(hit.target);
+      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }else{
+      out.innerHTML = '未找到与“<b>' + q.replace(/[<>&]/g,'') + '</b>”匹配的条目，可尝试“银月骑士团”“泳装”“复审”等关键词。';
+    }
+  }
+
+  btn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+})();
+</script>
+</body>
+            </html>
