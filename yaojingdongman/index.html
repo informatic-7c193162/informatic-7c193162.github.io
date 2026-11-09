@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>妖精动漫 - 奇幻动画条目聚合</title>
+  <meta name="description" content="妖精动漫聚合奇幻妖精题材动画条目，涵盖新番速递、经典补番、治愈系推荐、异世界妖精分类、更新动态与深度解析，适合奇幻动画爱好者查找与筛选观看内容。">
+  <meta name="keywords" content="奇幻动画,妖精题材,异世界新番,治愈系动漫,精灵物语">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧚</text></svg>">
+  <style>
+    /* ===== 设计系统 ===== */
+    :root {
+      --color-bg: #f7f5f2;
+      --color-surface: #ffffff;
+      --color-surface-alt: #f0ece6;
+      --color-primary: #5b4b8a;
+      --color-primary-light: #7e6db3;
+      --color-primary-dark: #3e3166;
+      --color-accent: #c9a96e;
+      --color-accent-light: #e8d9b8;
+      --color-text: #2e2a24;
+      --color-text-secondary: #5c564e;
+      --color-text-muted: #8c857c;
+      --color-border: #e2ddd6;
+      --color-tag-bg: #ede8f5;
+      --color-tag-text: #5b4b8a;
+      --font-heading: "Songti SC", "Noto Serif SC", "SimSun", serif;
+      --font-body: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(46,42,36,0.06);
+      --shadow-md: 0 4px 12px rgba(46,42,36,0.08);
+      --shadow-lg: 0 8px 28px rgba(46,42,36,0.10);
+      --sticky-top: 0;
+      --announce-height: 36px;
+      --header-height: 64px;
+      --container-max: 1380px;
+      --gap-sm: 12px;
+      --gap-md: 20px;
+      --gap-lg: 32px;
+      --gap-xl: 48px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--announce-height) + var(--header-height) + 12px); }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--color-primary); }
+    img { display: block; max-width: 100%; height: auto; }
+    button { cursor: pointer; font-family: inherit; }
+    ul, ol { list-style: none; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
+    h2 { font-size: 1.5rem; margin-bottom: var(--gap-md); }
+    h3 { font-size: 1.15rem; margin-bottom: var(--gap-sm); }
+    p { margin-bottom: var(--gap-sm); }
+
+    /* ===== 吸顶公告条 ===== */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--announce-height);
+      background: linear-gradient(90deg, var(--color-primary-dark), var(--color-primary));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      padding: 0 var(--gap-md);
+      transition: transform 0.2s;
+    }
+    .announce-bar span { opacity: 0.7; margin-right: 8px; }
+
+    /* ===== 吸顶页头 ===== */
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      height: var(--header-height);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      padding: 0 var(--gap-md);
+    }
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: var(--gap-lg);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand svg { width: 36px; height: 36px; }
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      white-space: nowrap;
+    }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      font-size: 0.88rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-nav a:hover, .main-nav a:focus-visible {
+      background: var(--color-tag-bg);
+      color: var(--color-primary);
+      outline: none;
+    }
+    .header-quick {
+      margin-left: auto;
+      flex-shrink: 0;
+      display: flex;
+      gap: 8px;
+    }
+    .header-quick .quick-btn {
+      font-size: 0.82rem;
+      padding: 6px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-secondary);
+      transition: 0.2s;
+    }
+    .header-quick .quick-btn:hover { border-color: var(--color-primary-light); color: var(--color-primary); }
+
+    /* ===== 布局：三栏门户 ===== */
+    .page-wrap {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--gap-md);
+    }
+    .portal-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: var(--gap-lg);
+      align-items: start;
+      padding-top: var(--gap-lg);
+    }
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--announce-height) + var(--header-height) + 16px);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: var(--gap-md) 0;
+    }
+    .channel-sidebar h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      padding: 0 var(--gap-md);
+      margin-bottom: var(--gap-sm);
+    }
+    .channel-sidebar ul li a {
+      display: block;
+      padding: 8px var(--gap-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      border-left: 3px solid transparent;
+      transition: 0.2s;
+    }
+    .channel-sidebar ul li a:hover, .channel-sidebar ul li a:focus-visible {
+      background: var(--color-surface-alt);
+      border-left-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .main-content { min-width: 0; }
+    .aux-sidebar {
+      position: sticky;
+      top: calc(var(--announce-height) + var(--header-height) + 16px);
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-md);
+    }
+
+    /* ===== 首屏 ===== */
+    .hero {
+      background: linear-gradient(135deg, #2e2440 0%, #4a3a6e 45%, #6b5a8c 100%);
+      border-radius: var(--radius-lg);
+      padding: var(--gap-xl) var(--gap-lg);
+      margin-bottom: var(--gap-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--gap-xl);
+      overflow: hidden;
+      position: relative;
+      color: #fff;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,169,110,0.15);
+      pointer-events: none;
+    }
+    .hero-visual {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero-text h1 {
+      font-size: 2.6rem;
+      color: #fff;
+      margin-bottom: var(--gap-sm);
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .hero-desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.8;
+      margin-bottom: var(--gap-md);
+      max-width: 560px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: var(--gap-sm);
+      flex-wrap: wrap;
+    }
+    .hero-actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 22px;
+      border-radius: 24px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .hero-actions .btn-primary { background: var(--color-accent); color: var(--color-primary-dark); }
+    .hero-actions .btn-primary:hover { background: var(--color-accent-light); color: var(--color-primary-dark); }
+    .hero-actions .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+    .hero-actions .btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ===== 通用区块 ===== */
+    .section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--gap-lg);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--gap-lg);
+    }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: var(--gap-md);
+      gap: var(--gap-md);
+      flex-wrap: wrap;
+    }
+    .section-head h2 { margin-bottom: 0; }
+    .section-head .more-link {
+      font-size: 0.85rem;
+      color: var(--color-primary-light);
+      white-space: nowrap;
+    }
+    .section-head .more-link:hover { color: var(--color-primary-dark); }
+
+    /* 概览 */
+    .overview-text { font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.9; }
+    .overview-text p { margin-bottom: var(--gap-sm); }
+
+    /* 精选卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--gap-md);
+    }
+    .card {
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .card-thumb { position: relative; }
+    .card-thumb img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .card-body { padding: 14px; flex: 1; display: flex; flex-direction: column; }
+    .card-body h3 { font-size: 1rem; margin-bottom: 6px; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+    .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 1px 8px;
+      border-radius: 10px;
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      white-space: nowrap;
+    }
+    .tag-accent { background: #fcf3e4; color: #a07d3c; }
+    .card-desc { font-size: 0.84rem; color: var(--color-text-secondary); line-height: 1.6; flex: 1; }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    /* 更新动态紧凑列表 */
+    .update-list { display: flex; flex-direction: column; gap: 0; }
+    .update-item {
+      display: flex;
+      align-items: baseline;
+      gap: var(--gap-sm);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item time { font-size: 0.78rem; color: var(--color-text-muted); white-space: nowrap; min-width: 70px; }
+    .update-item .update-name { font-weight: 600; color: var(--color-text); white-space: nowrap; }
+    .update-item .update-summary { color: var(--color-text-secondary); font-size: 0.85rem; }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--gap-sm);
+    }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      padding: 14px 16px;
+      background: var(--color-surface-alt);
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+    .category-item:hover { border-color: var(--color-primary-light); background: var(--color-surface); }
+    .category-item .cat-name { font-weight: 600; font-size: 0.95rem; color: var(--color-primary-dark); margin-bottom: 4px; }
+    .category-item .cat-desc { font-size: 0.78rem; color: var(--color-text-muted); }
+
+    /* 深度解析 */
+    .deep-dive h3 { margin-top: var(--gap-md); }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p, .deep-dive li { font-size: 0.92rem; color: var(--color-text-secondary); line-height: 1.85; }
+    .deep-dive ul { padding-left: 1.2em; margin-bottom: var(--gap-sm); }
+    .deep-dive ul li { list-style: disc; margin-bottom: 4px; }
+    .deep-dive .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--gap-sm) 0 var(--gap-md);
+      font-size: 0.85rem;
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid var(--color-border);
+      padding: 8px 10px;
+      text-align: left;
+    }
+    .compare-table th { background: var(--color-surface-alt); font-weight: 600; color: var(--color-primary-dark); }
+
+    /* 消费路径 */
+    .path-steps { display: flex; flex-direction: column; gap: var(--gap-md); }
+    .path-step {
+      display: flex;
+      gap: var(--gap-md);
+      align-items: flex-start;
+      padding: var(--gap-sm) 0;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .step-body { flex: 1; }
+    .step-body h4 { font-size: 0.98rem; margin-bottom: 4px; }
+    .step-body p { font-size: 0.86rem; color: var(--color-text-secondary); margin: 0; }
+
+    /* FAQ */
+    .faq-list details {
+      border-bottom: 1px solid var(--color-border);
+      padding: 10px 0;
+    }
+    .faq-list details:last-child { border-bottom: none; }
+    .faq-list summary {
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      color: var(--color-text);
+    }
+    .faq-list summary::after { content: '+'; font-size: 1.1rem; color: var(--color-text-muted); transition: 0.2s; }
+    .faq-list details[open] summary::after { content: '−'; }
+    .faq-list .faq-answer {
+      padding: 8px 0 4px;
+      font-size: 0.88rem;
+      color: var(--color-text-secondary);
+      line-height: 1.75;
+    }
+
+    /* 评论 */
+    .comment-list { display: flex; flex-direction: column; gap: var(--gap-sm); }
+    .comment-item {
+      display: flex;
+      gap: var(--gap-sm);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .comment-item:last-child { border-bottom: none; }
+    .comment-avatar {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .comment-body { flex: 1; min-width: 0; }
+    .comment-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; }
+    .comment-nick { font-size: 0.85rem; font-weight: 600; }
+    .comment-date { font-size: 0.72rem; color: var(--color-text-muted); }
+    .comment-text { font-size: 0.86rem; color: var(--color-text-secondary); }
+
+    /* 资讯 */
+    .news-list { display: flex; flex-direction: column; gap: var(--gap-md); }
+    .news-item { display: flex; gap: var(--gap-md); }
+    .news-item img { width: 120px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); flex-shrink: 0; }
+    .news-body { flex: 1; min-width: 0; }
+    .news-body h4 { font-size: 0.95rem; margin-bottom: 2px; }
+    .news-body time { font-size: 0.75rem; color: var(--color-text-muted); }
+    .news-body p { font-size: 0.84rem; color: var(--color-text-secondary); margin-top: 4px; margin-bottom: 0; }
+
+    /* 相关推荐标签 */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-cloud a {
+      display: inline-block;
+      padding: 5px 14px;
+      background: var(--color-surface-alt);
+      border-radius: 18px;
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+      transition: 0.2s;
+      border: 1px solid transparent;
+    }
+    .tag-cloud a:hover { background: var(--color-tag-bg); color: var(--color-primary); border-color: var(--color-primary-light); }
+
+    /* 榜单 */
+    .rank-list { display: flex; flex-direction: column; gap: 0; }
+    .rank-item {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-sm);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem;
+    }
+    .rank-item:last-child { border-bottom: none; }
+    .rank-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--color-surface-alt);
+      color: var(--color-text-muted);
+    }
+    .rank-num.top3 { background: var(--color-accent); color: var(--color-primary-dark); }
+    .rank-item .rank-name { font-weight: 600; flex: 1; }
+    .rank-item .rank-score { font-size: 0.78rem; color: var(--color-text-muted); }
+
+    /* 辅助栏 */
+    .aux-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-md);
+      padding: var(--gap-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .aux-card h3 { font-size: 0.92rem; margin-bottom: var(--gap-sm); color: var(--color-primary-dark); }
+    .aux-card .update-stream { display: flex; flex-direction: column; gap: 8px; }
+    .aux-card .update-stream li {
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--color-border);
+      line-height: 1.5;
+    }
+    .aux-card .update-stream li:last-child { border-bottom: none; padding-bottom: 0; }
+    .aux-card .update-stream li strong { color: var(--color-text); }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--color-primary-dark);
+      color: rgba(255,255,255,0.75);
+      padding: var(--gap-xl) var(--gap-md) var(--gap-lg);
+      margin-top: var(--gap-xl);
+    }
+    .footer-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--gap-lg);
+    }
+    .footer-brand .brand-name { color: #fff; font-size: 1.2rem; }
+    .footer-brand p { font-size: 0.82rem; margin-top: 8px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.85rem; color: #fff; margin-bottom: 10px; }
+    .footer-col ul li { margin-bottom: 6px; font-size: 0.8rem; }
+    .footer-col ul li a:hover { color: var(--color-accent); }
+    .footer-bottom {
+      max-width: var(--container-max);
+      margin: var(--gap-lg) auto 0;
+      padding-top: var(--gap-md);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.75rem;
+      text-align: center;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 1100px) {
+      .portal-layout { grid-template-columns: 160px 1fr; }
+      .aux-sidebar { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 820px) {
+      .portal-layout { grid-template-columns: 1fr; }
+      .channel-sidebar { position: static; display: none; }
+      .hero { flex-direction: column; text-align: center; padding: var(--gap-lg); }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-desc { max-width: 100%; }
+      .hero-actions { justify-content: center; }
+      .hero-visual { width: 140px; height: 140px; }
+      .main-nav { gap: 2px; }
+      .main-nav a { font-size: 0.8rem; padding: 5px 10px; }
+      .header-quick { display: none; }
+      .brand-name { font-size: 1.1rem; }
+    }
+    @media (max-width: 740px) {
+      .section { padding: var(--gap-md); }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .category-grid { grid-template-columns: 1fr 1fr; }
+      .news-item { flex-direction: column; }
+      .news-item img { width: 100%; height: 140px; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .announce-bar { font-size: 0.72rem; }
+    }
+    @media (max-width: 460px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 1.6rem; }
+      .hero { padding: var(--gap-md); }
+    }
+
+    /* 焦点可见 */
+    :focus-visible { outline: 2px solid var(--color-primary-light); outline-offset: 2px; border-radius: 2px; }
+    summary:focus-visible { outline: 2px solid var(--color-primary-light); }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar">
+    <span>✦</span> 本周新增 12 部妖精题材动画 · 秋季新番《森之守人》第 6 集已上线
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#home" class="brand" aria-label="妖精动漫首页">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="24" cy="24" r="22" fill="#ede8f5" stroke="#5b4b8a" stroke-width="1.5"/>
+          <path d="M24 10c-3 4-6 6-6 10 0 5 3 8 6 12 3-4 6-7 6-12 0-4-3-6-6-10z" fill="#5b4b8a" opacity="0.7"/>
+          <circle cx="18" cy="20" r="2" fill="#c9a96e"/>
+          <circle cx="30" cy="20" r="2" fill="#c9a96e"/>
+          <path d="M20 30c2 2 6 2 8 0" stroke="#5b4b8a" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M12 24c-2-3-4-4-4-4s1 3 4 4z" fill="#c9a96e"/>
+          <path d="M36 24c2-3 4-4 4-4s-1 3-4 4z" fill="#c9a96e"/>
+        </svg>
+        <span class="brand-name">妖精动漫</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#new-updates">新番速递</a>
+        <a href="/#featured">精选推荐</a>
+        <a href="/#categories">分类索引</a>
+        <a href="/#deep-dive">深度解析</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">漫友评论</a>
+        <a href="/#news">相关资讯</a>
+      </nav>
+      <div class="header-quick">
+        <button class="quick-btn" type="button" title="筛选当前可见的精选条目">筛选条目</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面主体 -->
+  <div class="page-wrap">
+    <div class="portal-layout">
+
+      <!-- 左频道索引 -->
+      <aside class="channel-sidebar">
+        <h2>频道索引</h2>
+        <ul>
+          <li><a href="/#new-updates">新番速递</a></li>
+          <li><a href="/#featured">精选推荐</a></li>
+          <li><a href="/#categories">分类索引</a></li>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#guide">观看路径</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">漫友评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#related">延伸推荐</a></li>
+          <li><a href="/#ranking">热门榜单</a></li>
+        </ul>
+      </aside>
+
+      <!-- 中间主内容 -->
+      <main class="main-content">
+
+        <!-- 首屏 -->
+        <section class="hero" id="home">
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="g1" cx="50%" cy="40%" r="60%">
+                  <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.25"/>
+                  <stop offset="100%" stop-color="#5b4b8a" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle cx="100" cy="100" r="90" fill="url(#g1)"/>
+              <circle cx="100" cy="100" r="60" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.4"/>
+              <circle cx="100" cy="100" r="40" fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.6"/>
+              <path d="M100 50c-8 12-18 20-18 32 0 16 10 26 18 38 8-12 18-22 18-38 0-12-10-20-18-32z" fill="#c9a96e" opacity="0.75"/>
+              <circle cx="86" cy="82" r="3" fill="#2e2440"/>
+              <circle cx="114" cy="82" r="3" fill="#2e2440"/>
+              <path d="M90 102c4 4 16 4 20 0" stroke="#2e2440" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <path d="M62 78c-8-8-14-10-14-10s3 8 14 10z" fill="#c9a96e" opacity="0.6"/>
+              <path d="M138 78c8-8 14-10 14-10s-3 8-14 10z" fill="#c9a96e" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="hero-text">
+            <h1>妖精动漫</h1>
+            <p class="hero-desc">
+              汇聚森林精灵、异世界妖精、治愈系小精灵与暗黑妖精题材的动画条目。从当季新番《森之守人》到经典补番《精灵物语》，按类型、评分与更新节奏逐项整理，方便你找到下一部要看的作品。
+            </p>
+            <div class="hero-actions">
+              <a href="/#featured" class="btn-primary">浏览精选条目</a>
+              <a href="/#new-updates" class="btn-ghost">查看今日更新</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1. 主题领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-head">
+            <h2>妖精题材动画领域概览</h2>
+          </div>
+          <div class="overview-text">
+            <p>妖精动漫泛指以妖精、精灵、小仙子等超自然生物为核心角色的动画作品。这一题材大致可以分为几个方向：森林治愈系，以《森之守人》《苔藓精灵的午后》为代表，节奏舒缓、画面清新；异世界冒险系，如《转生妖精的异世界指南》《妖精骑士与迷宫都市》，侧重世界观展开与战斗；暗黑向妖精故事，包括《夜之妖精》《荆棘仙子》，探讨更复杂的主题；以及单元短篇系，每集 12 分钟左右的《妖精观察日记》《小精灵邮局》适合碎片时间观看。</p>
+            <p>2026 年秋季档中，妖精题材新番数量较去年同期有所增加，其中《森之守人》凭借细腻的森林生态描写与配乐收获较高讨论度；经典作品《精灵物语》推出重制版，画面比例与音效全面升级。此外，治愈系短篇《蘑菇妖精的散步道》在十月上线后，以每集独立成篇的形式吸引了不少非核心观众。选择作品时，可以关注制作公司、系列构成与单集时长三个维度，再结合个人对快节奏或慢叙事的偏好做决定。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured">
+          <div class="section-head">
+            <h2>精选妖精动画条目</h2>
+            <a href="/#categories" class="more-link">按分类查看 →</a>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/sen-morito01/400/300" alt="森之守人动画主视觉：森林精灵与萤火" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>森之守人</h3>
+                <div class="card-tags"><span class="tag">治愈</span><span class="tag">森林精灵</span><span class="tag">2026秋</span></div>
+                <p class="card-desc">以森林生态保护为背景，讲述见习守林人与妖精协作修复被破坏的栖息地。第 6 集引入新的水栖妖精群落，画面与配乐维持高水准。</p>
+                <div class="card-meta"><span>热度 9.2</span><span>更新至第 6 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/elf-monogatari02/400/300" alt="精灵物语重制版封面：精灵少女与古树" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>精灵物语（重制版）</h3>
+                <div class="card-tags"><span class="tag">经典</span><span class="tag">冒险</span><span class="tag">重制</span></div>
+                <p class="card-desc">2014 年原版的高清重制，修正了部分作画并重新录制配乐。故事围绕精灵公主与人类游侠的旅途展开，适合未看过原版的观众补番。</p>
+                <div class="card-meta"><span>评分 9.0</span><span>全 26 集已上线</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/isekai-fairy03/400/300" alt="转生妖精的异世界指南封面：妖精与魔法阵" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>转生妖精的异世界指南</h3>
+                <div class="card-tags"><span class="tag">异世界</span><span class="tag">轻喜剧</span><span class="tag">转生</span></div>
+                <p class="card-desc">社畜转生为异世界最弱妖精，靠现代知识与谈判技巧在迷宫都市谋生。第十集加入公会经营线，节奏明快，适合喜欢轻松异世界故事的观众。</p>
+                <div class="card-meta"><span>热度 8.7</span><span>更新至第 10 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/yoru-fairy04/400/300" alt="夜之妖精动画剧照：暗色森林中的发光妖精" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>夜之妖精</h3>
+                <div class="card-tags"><span class="tag">暗黑</span><span class="tag">悬疑</span><span class="tag">2026秋</span></div>
+                <p class="card-desc">以都市传说中“夜间出现的妖精”为线索，讲述调查员逐步揭开小镇秘密。气氛营造出色，但部分观众反映中段节奏偏慢，建议一次观看两到三集。</p>
+                <div class="card-meta"><span>热度 8.9</span><span>更新至第 5 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/kinoko-fairy05/400/300" alt="蘑菇妖精的散步道封面：蘑菇小屋与妖精" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>蘑菇妖精的散步道</h3>
+                <div class="card-tags"><span class="tag">短篇</span><span class="tag">治愈</span><span class="tag">单元剧</span></div>
+                <p class="card-desc">每集 12 分钟，讲述蘑菇妖精在森林里散步时遇到的小事。没有连续剧情，适合睡前或通勤时随意观看。十月上线以来保持每周两集更新。</p>
+                <div class="card-meta"><span>评分 8.5</span><span>更新至第 8 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/fairy-knight06/400/300" alt="妖精骑士与迷宫都市封面：骑士与妖精并肩" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>妖精骑士与迷宫都市</h3>
+                <div class="card-tags"><span class="tag">奇幻</span><span class="tag">战斗</span><span class="tag">群像</span></div>
+                <p class="card-desc">妖精骑士团在迷宫都市执行探索任务，群像刻画扎实，每集围绕一名骑士展开。第七集聚焦治疗师妖精的过去，是上半季评价较高的一集。</p>
+                <div class="card-meta"><span>热度 8.8</span><span>更新至第 7 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/token-fairy07/400/300" alt="苔藓精灵的午后封面：树荫下的精灵" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>苔藓精灵的午后</h3>
+                <div class="card-tags"><span class="tag">慢生活</span><span class="tag">自然</span><span class="tag">2026秋</span></div>
+                <p class="card-desc">几乎没有对白，依靠画面与音乐讲述苔藓精灵的日常。适合喜欢安静氛围的观众，但不建议一次性连续观看过多集，容易产生疲劳。</p>
+                <div class="card-meta"><span>评分 8.3</span><span>更新至第 4 集</span></div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-thumb">
+                <img src="https://picsum.photos/seed/fairy-post08/400/300" alt="小精灵邮局动画截图：邮局柜台后的妖精" width="400" height="300" loading="lazy">
+              </div>
+              <div class="card-body">
+                <h3>小精灵邮局</h3>
+                <div class="card-tags"><span class="tag">单元剧</span><span class="tag">温情</span><span class="tag">职业</span></div>
+                <p class="card-desc">妖精邮差为森林居民送信，每集解决一个收件人的烦恼。故事结构工整，第九集关于“寄往已故友人的信”处理得克制而有分量。</p>
+                <div class="card-meta"><span>评分 8.6</span><span>更新至第 9 集</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新动态 -->
+        <section class="section" id="new-updates">
+          <div class="section-head">
+            <h2>最新更新与动态</h2>
+          </div>
+          <div class="update-list">
+            <div class="update-item"><time>今天 09:30</time><span class="update-name">森之守人</span><span class="update-summary">第 6 集上线，水栖妖精群落首次登场</span></div>
+            <div class="update-item"><time>今天 08:15</time><span class="update-name">蘑菇妖精的散步道</span><span class="update-summary">第 8 集更新，本次为“秋雨与伞”主题</span></div>
+            <div class="update-item"><time>昨天 21:10</time><span class="update-name">转生妖精的异世界指南</span><span class="update-summary">第 10 集上线，公会经营线正式展开</span></div>
+            <div class="update-item"><time>昨天 18:40</time><span class="update-name">夜之妖精</span><span class="update-summary">第 5 集更新，调查员获得关键证词</span></div>
+            <div class="update-item"><time>11 月 6 日</time><span class="update-name">精灵物语（重制版）</span><span class="update-summary">全 26 集重制版上线，BGM 重新录制</span></div>
+            <div class="update-item"><time>11 月 5 日</time><span class="update-name">妖精骑士与迷宫都市</span><span class="update-summary">第 7 集上线，治疗师妖精的过去篇</span></div>
+            <div class="update-item"><time>11 月 4 日</time><span class="update-name">小精灵邮局</span><span class="update-summary">第 9 集更新，“寄往已故友人的信”</span></div>
+            <div class="update-item"><time>11 月 3 日</time><span class="update-name">苔藓精灵的午后</span><span class="update-summary">第 4 集上线，本集主题为“午后阵雨”</span></div>
+            <div class="update-item"><time>11 月 1 日</time><span class="update-name">森之守人</span><span class="update-summary">第 5 集更新，守林人首次独立执行修复任务</span></div>
+          </div>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="categories">
+          <div class="section-head">
+            <h2>妖精动画分类索引</h2>
+          </div>
+          <div class="category-grid">
+            <a href="/#featured" class="category-item"><span class="cat-name">森林治愈系</span><span class="cat-desc">森之守人、苔藓精灵的午后</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">异世界冒险</span><span class="cat-desc">转生妖精的异世界指南</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">暗黑妖精题材</span><span class="cat-desc">夜之妖精、荆棘仙子</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">单元短篇</span><span class="cat-desc">蘑菇妖精的散步道、小精灵邮局</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">经典补番</span><span class="cat-desc">精灵物语（重制版）</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">战斗群像</span><span class="cat-desc">妖精骑士与迷宫都市</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">慢生活日常</span><span class="cat-desc">无对白、重氛围的妖精作品</span></a>
+            <a href="/#featured" class="category-item"><span class="cat-name">2026 秋新番</span><span class="cat-desc">当季正在更新的妖精动画</span></a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="section deep-dive" id="deep-dive">
+          <div class="section-head">
+            <h2>妖精题材动画的观看选择与类型差异</h2>
+          </div>
+
+          <h3>治愈系与冒险系的核心区别</h3>
+          <p>妖精题材内部最明显的分界线在于叙事驱动力。治愈系作品如《森之守人》《苔藓精灵的午后》以氛围与日常细节推进，冲突规模小、解决方式温和，适合放松时观看。冒险系则依赖明确的目标与外部威胁，《转生妖精的异世界指南》《妖精骑士与迷宫都市》都属于此类，每集通常设有待解决的难题或待抵达的地点。</p>
+          <p>两类作品在单集节奏上有显著差异。治愈系常用长镜头与留白，信息密度低但情绪浓度高；冒险系信息密度大，台词与场景切换频繁。选择时可以问自己：这一集是想被安抚，还是想被带动。</p>
+
+          <h3>暗黑妖精题材的判断维度</h3>
+          <p>《夜之妖精》《荆棘仙子》这类作品常被归入暗黑向，但具体差异明显。可以从三个角度判断是否适合自己：</p>
+          <ul>
+            <li><strong>暴力呈现方式</strong>：是直接展示冲突场面，还是通过氛围与暗示完成叙事；</li>
+            <li><strong>角色道德灰度</strong>：主要角色是否有明确的善恶立场，还是处于模糊地带；</li>
+            <li><strong>结局倾向</strong>：故事整体走向是收束性解决，还是开放或悲观的收尾。</li>
+          </ul>
+          <p>《夜之妖精》偏向悬疑与调查过程，直接暴力场面较少；《荆棘仙子》则包含更多角色之间的心理对抗，适合能接受缓慢揭示的观众。</p>
+
+          <h3>单元剧与连续剧的比较</h3>
+          <table class="compare-table">
+            <thead>
+              <tr><th>维度</th><th>单元剧（如《小精灵邮局》）</th><th>连续剧（如《精灵物语》）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>观看门槛</td><td>低，任意一集可独立观看</td><td>需从第一集开始</td></tr>
+              <tr><td>适合场景</td><td>碎片时间、通勤</td><td>整块时间、连续追看</td></tr>
+              <tr><td>情感积累</td><td>单集内完成起承转合</td><td>跨集累积角色关系</td></tr>
+              <tr><td>推荐给</td><td>难以保证连续观看时间的人</td><td>喜欢长线故事的人</td></tr>
+            </tbody>
+          </table>
+
+          <h3>制作班底与单集时长的参考价值</h3>
+          <p>妖精题材对美术与配乐的要求较高，森林、光影、妖精翅膀的质感直接决定观感。看制作公司履历时，可以留意其过往作品是否有自然场景描绘的经验。单集时长方面，12 分钟短篇与 24 分钟标准篇的叙事容量不同：短篇通常只推进一个事件，标准篇则可以容纳 A/B 两条线索。若时间有限，《蘑菇妖精的散步道》这类短篇是较稳妥的入口；若想深入世界观，《精灵物语》重制版这类长篇更合适。</p>
+        </section>
+
+        <!-- 6. 体验指南 / 消费路径 -->
+        <section class="section" id="guide">
+          <div class="section-head">
+            <h2>妖精动画观看路径建议</h2>
+          </div>
+          <div class="path-steps">
+            <div class="path-step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>先判断可支配时间</h4>
+                <p>连续追看选 24 分钟标准篇（《森之守人》《夜之妖精》）；碎片时间选 12 分钟短篇（《蘑菇妖精的散步道》《小精灵邮局》）。这一步能直接排除一半选项。</p>
+              </div>
+            </div>
+            <div class="path-step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>确定情绪需求</h4>
+                <p>想放松就锁定治愈系与慢生活标签；想被剧情带动则优先冒险、悬疑、战斗类标签。两者没有高下之分，只看当下需求。</p>
+              </div>
+            </div>
+            <div class="path-step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>看首集与第二集的前十分钟</h4>
+                <p>妖精题材的作画与配乐水准通常在首集即可判断。如果第二集前十分钟仍无法进入状态，不必勉强继续，换一部同类型但节奏更快的作品。</p>
+              </div>
+            </div>
+            <div class="path-step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>比较同类型两部作品的关键差异</h4>
+                <p>比如在《森之守人》与《苔藓精灵的午后》之间，前者有明确的任务线，后者几乎没有情节，只有氛围。根据自己的注意力习惯做取舍。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="section-head">
+            <h2>妖精动漫常见问答</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>妖精题材动画一般多久更新一集？</summary>
+              <div class="faq-answer">大多数标准篇为每周一集，如《森之守人》每周五更新；短篇单元剧可能每周两集，如《蘑菇妖精的散步道》每周二与周六各更新一集。重制版或经典补番通常一次性全话上线。</div>
+            </details>
+            <details>
+              <summary>治愈系妖精动画和暗黑妖精动画的主要区别是什么？</summary>
+              <div class="faq-answer">治愈系以氛围安抚为主，冲突温和、解决方式柔软，代表如《森之守人》；暗黑系则围绕悬疑、心理对抗或道德灰度展开，如《夜之妖精》。可以先看首集的前五分钟来判断基调。</div>
+            </details>
+            <details>
+              <summary>第一次接触妖精动漫，从哪部作品开始比较好？</summary>
+              <div class="faq-answer">如果平时很少看动画，建议从《蘑菇妖精的散步道》或《小精灵邮局》这类单元短篇入手，单集独立、压力小。如果有连续追番习惯，可以从《森之守人》或《精灵物语（重制版）》开始。</div>
+            </details>
+            <details>
+              <summary>妖精题材作品的评判标准通常看哪些方面？</summary>
+              <div class="faq-answer">主要看三点：美术对自然场景与妖精质感的呈现、配乐与氛围的匹配度、以及单集叙事是否完整。冒险系还会额外看世界观展开是否自洽，单元剧则看每集是否保持独立完成度。</div>
+            </details>
+            <details>
+              <summary>《森之守人》和《苔藓精灵的午后》有什么区别？</summary>
+              <div class="faq-answer">《森之守人》有明确的守林人任务线与角色成长，《苔藓精灵的午后》则几乎没有对白与情节，纯粹依靠画面和音乐。前者适合想看故事的人，后者适合只想安静放空的人。</div>
+            </details>
+            <details>
+              <summary>暗黑妖精动画适合哪些观众？</summary>
+              <div class="faq-answer">适合能接受缓慢揭示、对悬疑与心理描写有兴趣的观众。如果更偏好轻松明快的氛围，建议先绕开《夜之妖精》《荆棘仙子》，从治愈系或冒险系开始。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="comments">
+          <div class="section-head">
+            <h2>漫友评论</h2>
+          </div>
+          <div class="comment-list">
+            <div class="comment-item"><div class="comment-avatar">森</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">森屿</span><span class="comment-date">今天 10:22</span></div><p class="comment-text">《森之守人》第 6 集的水栖妖精出场那段作画太好了，水面反光画得很细。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">夜</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">夜航星</span><span class="comment-date">今天 09:45</span></div><p class="comment-text">《夜之妖精》我攒了三集一起看，观感比追更好，中段节奏确实慢。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">蘑</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">蘑菇汤</span><span class="comment-date">昨天 22:18</span></div><p class="comment-text">《蘑菇妖精的散步道》每集就 12 分钟，但看完特别平静，适合睡前。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">精</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">精灵收藏家</span><span class="comment-date">昨天 20:30</span></div><p class="comment-text">重制版《精灵物语》的配乐重新录过之后确实不一样，古树那场戏情绪更足了。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">转</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">转生打工人</span><span class="comment-date">11 月 7 日 19:12</span></div><p class="comment-text">《转生妖精的异世界指南》第十集公会经营那段笑死，社畜 DNA 动了。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">小</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">小邮差</span><span class="comment-date">11 月 7 日 15:40</span></div><p class="comment-text">《小精灵邮局》第九集看哭了，但处理得很克制，没有刻意煽情。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">苔</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">苔痕上阶绿</span><span class="comment-date">11 月 6 日 21:05</span></div><p class="comment-text">《苔藓精灵的午后》第四集午后阵雨那段，雨声和画面配合得真好。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">骑</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">骑士团后勤</span><span class="comment-date">11 月 6 日 18:22</span></div><p class="comment-text">《妖精骑士与迷宫都市》第七集治疗师过去篇，算是目前最好看的一集。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">路</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">路过看番</span><span class="comment-date">11 月 5 日 14:50</span></div><p class="comment-text">不太习惯慢节奏的作品，但《森之守人》有任务线所以还能看下去。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">夜</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">夜猫子</span><span class="comment-date">11 月 5 日 02:10</span></div><p class="comment-text">《夜之妖精》第五集那个证词有点意思，但感觉节奏还是偏慢。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">补</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">补番中年</span><span class="comment-date">11 月 4 日 20:33</span></div><p class="comment-text">重制版《精灵物语》画幅比例舒服多了，老版现在看确实有点窄。</p></div></div>
+            <div class="comment-item"><div class="comment-avatar">安</div><div class="comment-body"><div class="comment-head"><span class="comment-nick">安静看片</span><span class="comment-date">11 月 3 日 11:08</span></div><p class="comment-text">短篇真的适合我，一集一个故事，不用记那么多人物关系。</p></div></div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-head">
+            <h2>妖精动漫相关资讯</h2>
+          </div>
+          <div class="news-list">
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-senmori/600/400" alt="森之守人第6集水栖妖精场景截图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《森之守人》第 6 集上线，水栖妖精群落首次登场</h4>
+                <time>2026-11-08</time>
+                <p>本集引入新的水栖妖精设定，守林人任务线推进至河流修复阶段，配乐新增两段主题旋律。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-elfremake/600/400" alt="精灵物语重制版宣传图：精灵公主与古树" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《精灵物语》重制版全 26 集上线，配乐重新录制</h4>
+                <time>2026-11-06</time>
+                <p>重制版修正了原版部分作画并调整画幅比例，音乐部分由原班团队重新录制，经典场景音效有所增强。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-mushroom08/600/400" alt="蘑菇妖精的散步道第8集秋雨与伞主题截图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《蘑菇妖精的散步道》第 8 集更新，秋雨与伞主题</h4>
+                <time>2026-11-05</time>
+                <p>本集延续单元剧结构，以秋雨为背景讲述蘑菇妖精与一把旧伞的故事，片尾新增一段钢琴间奏。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-knight07/600/400" alt="妖精骑士与迷宫都市第7集治疗师过去篇截图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《妖精骑士与迷宫都市》第 7 集聚焦治疗师妖精过去</h4>
+                <time>2026-11-04</time>
+                <p>本集为治疗师妖精的独立篇章，补充了骑士团成立前的背景故事，战斗场面较少但人物刻画评价较高。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-post09/600/400" alt="小精灵邮局第9集寄往已故友人的信截图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《小精灵邮局》第 9 集“寄往已故友人的信”引发讨论</h4>
+                <time>2026-11-03</time>
+                <p>本集以一封无法送达的信为核心，叙事克制，在社区中引发关于单元剧如何处理沉重话题的讨论。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/news-yorufairy05/600/400" alt="夜之妖精第5集关键证词场景截图" width="600" height="400" loading="lazy">
+              <div class="news-body">
+                <h4>《夜之妖精》第 5 集更新，调查员获得关键证词</h4>
+                <time>2026-11-02</time>
+                <p>本集推进主线悬疑，调查员从镇民处获得新的证词，结尾留下指向下一阶段调查的线索。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="related">
+          <div class="section-head">
+            <h2>延伸方向与关联条目</h2>
+          </div>
+          <div class="tag-cloud">
+            <a href="/#featured">妖精骑士团群像剧</a>
+            <a href="/#featured">无对白氛围动画</a>
+            <a href="/#featured">异世界转生妖精</a>
+            <a href="/#featured">森林生态题材</a>
+            <a href="/#featured">单元剧短篇合集</a>
+            <a href="/#featured">暗黑悬疑妖精</a>
+            <a href="/#featured">重制版经典补番</a>
+            <a href="/#featured">2026 秋季新番妖精</a>
+          </div>
+        </section>
+
+        <!-- 11. 补充板块：热门榜单 -->
+        <section class="section" id="ranking">
+          <div class="section-head">
+            <h2>本周妖精动画热度榜</h2>
+          </div>
+          <div class="rank-list">
+            <div class="rank-item"><span class="rank-num top3">1</span><span class="rank-name">森之守人</span><span class="rank-score">热度 9.2</span></div>
+            <div class="rank-item"><span class="rank-num top3">2</span><span class="rank-name">精灵物语（重制版）</span><span class="rank-score">热度 9.0</span></div>
+            <div class="rank-item"><span class="rank-num top3">3</span><span class="rank-name">夜之妖精</span><span class="rank-score">热度 8.9</span></div>
+            <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">妖精骑士与迷宫都市</span><span class="rank-score">热度 8.8</span></div>
+            <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">转生妖精的异世界指南</span><span class="rank-score">热度 8.7</span></div>
+            <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">小精灵邮局</span><span class="rank-score">评分 8.6</span></div>
+            <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">蘑菇妖精的散步道</span><span class="rank-score">评分 8.5</span></div>
+            <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">苔藓精灵的午后</span><span class="rank-score">评分 8.3</span></div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="aux-sidebar">
+        <div class="aux-card">
+          <h3>今日更新流</h3>
+          <ul class="update-stream">
+            <li><strong>森之守人</strong> 第 6 集 · 今天 09:30</li>
+            <li><strong>蘑菇妖精的散步道</strong> 第 8 集 · 今天 08:15</li>
+            <li><strong>转生妖精的异世界指南</strong> 第 10 集 · 昨天 21:10</li>
+            <li><strong>夜之妖精</strong> 第 5 集 · 昨天 18:40</li>
+            <li><strong>精灵物语（重制版）</strong> 全 26 集 · 11 月 6 日</li>
+          </ul>
+        </div>
+        <div class="aux-card">
+          <h3>妖精动画分类速览</h3>
+          <div class="tag-cloud" style="gap:6px;">
+            <a href="/#categories">治愈森林</a>
+            <a href="/#categories">异世界</a>
+            <a href="/#categories">暗黑悬疑</a>
+            <a href="/#categories">单元短篇</a>
+            <a href="/#categories">战斗群像</a>
+            <a href="/#categories">经典重制</a>
+          </div>
+        </div>
+        <div class="aux-card">
+          <h3>本周最高热度</h3>
+          <div class="rank-list">
+            <div class="rank-item"><span class="rank-num top3">1</span><span class="rank-name">森之守人</span><span class="rank-score">9.2</span></div>
+            <div class="rank-item"><span class="rank-num top3">2</span><span class="rank-name">精灵物语</span><span class="rank-score">9.0</span></div>
+            <div class="rank-item"><span class="rank-num top3">3</span><span class="rank-name">夜之妖精</span><span class="rank-score">8.9</span></div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">妖精动漫</span>
+        <p>聚焦妖精、精灵与森林题材动画的条目聚合，按类型、评分与更新节奏整理当前可观看内容。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容频道</h4>
+        <ul>
+          <li><a href="/#new-updates">新番速递</a></li>
+          <li><a href="/#featured">精选推荐</a></li>
+          <li><a href="/#categories">分类索引</a></li>
+          <li><a href="/#ranking">热门榜单</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>参考与解析</h4>
+        <ul>
+          <li><a href="/#deep-dive">深度解析</a></li>
+          <li><a href="/#guide">观看路径</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#related">延伸推荐</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>社区</h4>
+        <ul>
+          <li><a href="/#comments">漫友评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>部分内容为示例数据，仅用于展示页面结构。© 2026 妖精动漫 内容聚合示例页</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // 筛选按钮：对精选卡片按名称做可见内容过滤
+      var filterBtn = document.querySelector('.quick-btn');
+      var featuredSection = document.getElementById('featured');
+      var cards = featuredSection ? Array.prototype.slice.call(featuredSection.querySelectorAll('.card')) : [];
+      var filterActive = false;
+
+      if (filterBtn && cards.length) {
+        filterBtn.addEventListener('click', function() {
+          filterActive = !filterActive;
+          if (filterActive) {
+            var keyword = '森';
+            cards.forEach(function(card) {
+              var title = card.querySelector('h3');
+              var name = title ? title.textContent.trim() : '';
+              card.style.display = name.indexOf(keyword) !== -1 ? '' : 'none';
+            });
+            filterBtn.textContent = '显示全部';
+          } else {
+            cards.forEach(function(card) { card.style.display = ''; });
+            filterBtn.textContent = '筛选条目';
+          }
+        });
+      }
+
+      // 平滑滚动锚点偏移（配合 scroll-padding-top）
+      document.querySelectorAll('a[href^="/#"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          if (href && href.startsWith('/#')) {
+            var targetId = href.slice(2);
+            var target = document.getElementById(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.replaceState(null, '', href);
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+                                                                     </html>
